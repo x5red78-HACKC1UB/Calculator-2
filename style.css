@@ -1,4 +1,4 @@
-body{
+ body{
     margin:0;
     display: flex;
     justify-content: center;
@@ -20,16 +20,29 @@ button{
     font-family:Comic Sans Ms,sans-serif;
     background-color: rgba(0, 0, 0, 0.578);
     color:white;
+    transform: translateZ(0);
+    transition: transform 0.1s;
 }
 #calculator{
+    position: relative;
     font-family:Comic Sans Ms,sans-serif ;
     background-color: rgb(97, 97, 97);
     border-radius: 10px;
     max-width: 280px;
     overflow:hidden;
     border: 2px solid black;
+    transform: rotateX(10deg) rotateY(-10deg);
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease;
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.4);
+}
+#numberdisplay,
+#numberkeys{
+    position: relative;
+    z-index: 1;
 }
 #numberdisplay{
+    position: relative;
     width: 100%;
     padding:20px;
     font-size: 5rem;
@@ -37,16 +50,27 @@ button{
      background-color: rgb(223, 223, 223);
      color: rgb(0, 0, 0);
      border:none;
-      overflow-x: scroll; 
+      overflow: hidden;
       white-space: nowrap; 
+      
 }
-
+#background{
+    position: absolute;
+inset: 0;  
+font-size: 3rem;
+color: rgb(0, 0, 0);
+opacity: 0.35;
+pointer-events: none;
+white-space: pre-wrap; 
+      z-index: 0;
+}
 
 button:hover{
     background-color: rgba(0, 0, 0, 0.378);
 }
 button:active{
     background-color: rgba(0, 0, 0, 0.139);
+    transform: translateZ(-6px);
 }
 .operation{
     background-color: rgba(252, 156, 2, 0.728);
@@ -56,4 +80,7 @@ button:active{
 }
 .operation:active{
     background-color: rgb(252, 156, 2);
+}
+#calculator3d{
+    perspective: 800px;
 }
