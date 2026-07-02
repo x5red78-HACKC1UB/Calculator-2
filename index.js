@@ -23,6 +23,15 @@ function calculate() {
         background.textContent=display.value;
     }
 };
+document.addEventListener("keydown", function(event){
+if (event.key === "Backspace") {
+    removeFromDisplay();
+}
+});
+function removeFromDisplay() {
+    display.value=display.value.slice(0,-1);
+background.textContent=display.value;
+}
 
 document.addEventListener("mousemove", (e) =>{
 const distanceX = (window.innerWidth/2 - e.clientX)/25;
