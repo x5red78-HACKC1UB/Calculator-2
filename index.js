@@ -1,26 +1,25 @@
 const display=document.getElementById("numberdisplay");
 const calc =document.getElementById("calculator");
-const background =document.getElementById("background");
+const backgrounddisplay= document.getElementById("backgrounddisplay");
 
 function appendToDisplay(input) {
     display.value+= input;
-background.textContent=display.value;
+backgrounddisplay.textContent+= input;
 
 }
 function clearDisplay() {
     display.value="";
-   background.textContent="";
-
+backgrounddisplay.textContent="";
 }
 function calculate() {
     
     try{
     display.value=eval(display.value);
-   background.textContent=display.value;
+    backgrounddisplay.textContent= eval(display.value);
     }
     catch(error){
         display.value="Error :("
-        background.textContent=display.value;
+        backgrounddisplay.textContent= "Error :(";
     }
 };
 document.addEventListener("keydown", function(event){
@@ -30,7 +29,7 @@ if (event.key === "Backspace") {
 });
 function removeFromDisplay() {
     display.value=display.value.slice(0,-1);
-background.textContent=display.value;
+    backgrounddisplay.textContent= backgrounddisplay.textContent.slice(0,-1);
 }
 
 document.addEventListener("mousemove", (e) =>{
